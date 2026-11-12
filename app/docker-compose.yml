@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: mindmood-backend
+    environment:
+      HF_HOME: /cache/huggingface
+      CORS_ALLOWED_ORIGINS: http://localhost,http://localhost:8080,http://127.0.0.1,http://127.0.0.1:8080
+      WHISPER_MODEL_SIZE: small
+      WHISPER_DEVICE: cpu
+      WHISPER_COMPUTE_TYPE: int8
+    ports:
+      - "8000:8000"
+    volumes:
+      - backend_db:/app/db_store
+      - huggingface_cache:/cache/huggingface
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: mindmood-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend_db:
+  huggingface_cache:

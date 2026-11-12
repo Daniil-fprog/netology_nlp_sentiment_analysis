@@ -1,0 +1,58 @@
+MoodSync — отчёт качества sentiment-модели
+=========================================
+
+1. Общая информация
+-------------------
+Количество тестовых записей: 20
+Правильно классифицировано: 18
+Ошибочно классифицировано: 2
+
+2. Основные метрики качества
+----------------------------
+Accuracy: 0.9000
+Precision macro: 0.6364
+Recall macro: 0.6000
+F1-score macro: 0.6138
+
+Precision weighted: 0.9545
+Recall weighted: 0.9000
+F1-score weighted: 0.9206
+
+3. Метрики sentiment_score
+--------------------------
+Средняя уверенность модели: 81.35%
+Средняя разница true_score и predicted_score: 13.95
+
+4. Распределение реальных классов
+---------------------------------
+Negative: 10
+Neutral: 0
+Positive: 10
+
+5. Распределение предсказанных классов
+--------------------------------------
+Negative: 11
+Neutral: 1
+Positive: 8
+
+6. Confusion matrix
+-------------------
+Строки — реальные классы.
+Столбцы — предсказанные классы.
+
+          negative  neutral  positive
+negative        10        0         0
+neutral          0        0         0
+positive         1        1         8
+
+7. Classification report
+------------------------
+              precision    recall  f1-score   support
+
+    negative       0.91      1.00      0.95        10
+     neutral       0.00      0.00      0.00         0
+    positive       1.00      0.80      0.89        10
+
+    accuracy                           0.90        20
+   macro avg       0.64      0.60      0.61        20
+weighted avg       0.95      0.90      0.92        20

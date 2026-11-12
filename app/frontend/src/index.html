@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Voice Mood — анализ голоса</title>
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="hero">
+            <span class="eyebrow">Анализ тональности</span>
+            <h1>Загрузите голосовое сообщение</h1>
+            <p>Whisper расшифрует запись, а ML-модель определит позитивную или негативную окраску.</p>
+        </header>
+
+        <section class="upload-card">
+            <form id="upload-form">
+                <label class="drop-zone" for="audio-input">
+                    <span class="drop-zone__icon">♫</span>
+                    <strong id="file-label">Выберите аудио</strong>
+                    <small>OGG/OPUS из Telegram, MP3, WAV, M4A, WEBM • до 25 МБ</small>
+                </label>
+                <input id="audio-input" name="audio" type="file" accept="audio/*,.ogg,.oga,.opus,.m4a,.webm" required>
+                <button id="submit-button" type="submit" disabled>Расшифровать и определить тон</button>
+            </form>
+            <p id="status" class="status" role="status">Создаём защищённую сессию…</p>
+        </section>
+
+        <section class="results-section" aria-labelledby="results-title">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">Текущая сессия</span>
+                    <h2 id="results-title">Результаты</h2>
+                </div>
+                <span id="record-count" class="counter">0</span>
+            </div>
+            <div id="results" class="results">
+                <p id="empty-state" class="empty-state">Здесь появятся тональность и расшифровка.</p>
+            </div>
+            <p class="privacy-note">После закрытия страницы записи этой сессии помечаются удалёнными и больше не выдаются.</p>
+        </section>
+    </main>
+    <template id="result-template">
+        <article class="result-card">
+            <div class="result-card__top">
+                <div>
+                    <p class="result-card__file"></p>
+                    <time class="result-card__time"></time>
+                </div>
+                <span class="sentiment"></span>
+            </div>
+            <div class="metrics">
+                <span>Уверенность <strong class="confidence"></strong></span>
+                <span>Индекс позитива <strong class="score"></strong></span>
+            </div>
+            <h3>Расшифровка</h3>
+            <p class="transcript"></p>
+        </article>
+    </template>
+    <script type="module" src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+
+# Backend data
+/backend/train_model/data/*
+!/backend/train_model/data/.gitkeep
+
+# Backend model files
+/backend/train_model/models/*
+!/backend/train_model/models/.gitkeep
+
+# Local DB files
+/backend/db_store/*.sqlite
+/backend/db_store/*.sqlite3
+/backend/db_store/*.db
+!/backend/db_store/.gitkeep
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE / OS
+.DS_Store
+.idea/
+.pytest_cache
+
+# Logs
+*.log
+logs/

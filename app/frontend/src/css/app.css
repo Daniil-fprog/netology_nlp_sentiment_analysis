@@ -1,0 +1,71 @@
+:root {
+    color-scheme: light;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #17231d;
+    background: #f3f5ef;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(196, 224, 180, .65), transparent 34rem),
+        radial-gradient(circle at 100% 20%, rgba(255, 209, 188, .45), transparent 30rem),
+        #f4f6f1;
+}
+
+button, input { font: inherit; }
+
+.shell { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 72px 0; }
+.hero { max-width: 780px; margin-bottom: 30px; }
+.eyebrow { color: #557463; font-size: .76rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+h1 { margin: 10px 0 16px; font-family: Georgia, serif; font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 500; line-height: .98; letter-spacing: -.04em; }
+.hero p { color: #536059; max-width: 660px; font-size: 1.05rem; line-height: 1.7; }
+
+.upload-card, .results-section {
+    background: rgba(255, 255, 255, .82);
+    border: 1px solid rgba(70, 93, 79, .16);
+    border-radius: 28px;
+    box-shadow: 0 24px 70px rgba(49, 71, 57, .09);
+    backdrop-filter: blur(12px);
+}
+.upload-card { padding: 18px; }
+#audio-input { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; }
+.drop-zone { display: flex; min-height: 210px; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 8px; border: 1.5px dashed #91a899; border-radius: 20px; background: #f8faf6; text-align: center; padding: 24px; }
+.drop-zone:hover { border-color: #365d47; background: #f2f7ef; }
+.drop-zone__icon { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; color: white; background: #365d47; font-size: 1.5rem; }
+.drop-zone small { color: #708078; }
+button { width: 100%; border: 0; border-radius: 16px; margin-top: 14px; padding: 16px 20px; color: white; background: #172f23; font-weight: 750; cursor: pointer; transition: transform .2s, opacity .2s; }
+button:hover:not(:disabled) { transform: translateY(-2px); }
+button:disabled { cursor: not-allowed; opacity: .45; }
+.status { margin: 14px 4px 0; color: #627168; font-size: .9rem; }
+.status.success { color: #26714a; }
+.status.error { color: #ae382e; }
+
+.results-section { margin-top: 28px; padding: clamp(22px, 5vw, 42px); }
+.section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 20px; }
+h2 { margin: 5px 0 0; font-family: Georgia, serif; font-size: 2.2rem; font-weight: 500; }
+.counter { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: #fff; background: #365d47; font-weight: 800; }
+.results { display: grid; gap: 14px; }
+.empty-state { color: #7b867f; padding: 36px; border: 1px dashed #cbd3cd; border-radius: 18px; text-align: center; }
+.result-card { overflow: hidden; padding: 22px; border: 1px solid #e3e7e2; border-left: 5px solid; border-radius: 18px; background: #fff; }
+.result-card--positive { border-left-color: #4f9a69; }
+.result-card--negative { border-left-color: #d3685f; }
+.result-card__top { display: flex; justify-content: space-between; gap: 15px; align-items: start; }
+.result-card__file { margin: 0 0 4px; font-weight: 800; overflow-wrap: anywhere; }
+.result-card__time { color: #7c8881; font-size: .82rem; }
+.sentiment { border-radius: 999px; padding: 7px 11px; font-size: .78rem; font-weight: 800; }
+.sentiment--positive { color: #22603a; background: #dcf1e3; }
+.sentiment--negative { color: #8a2d28; background: #f9dfdc; }
+.metrics { display: flex; flex-wrap: wrap; gap: 9px 20px; margin: 20px 0; color: #647068; font-size: .88rem; }
+.result-card h3 { margin: 0 0 8px; font-size: .82rem; letter-spacing: .09em; text-transform: uppercase; }
+.transcript { margin: 0; line-height: 1.7; color: #344039; }
+.privacy-note { margin: 24px 0 0; color: #7b867f; font-size: .82rem; line-height: 1.55; }
+
+@media (max-width: 620px) {
+    .shell { padding: 40px 0; }
+    .result-card__top { flex-direction: column; }
+    .upload-card { border-radius: 20px; }
+}
